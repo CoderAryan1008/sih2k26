@@ -1,0 +1,35 @@
+{
+  "name": "aicte-approval-workflow-sih2026",
+  "version": "1.0.0",
+  "description": "AICTE Integrated Approval Workflow Automation, Compliance Monitoring & Alert Management System",
+  "type": "module",
+  "main": "server/src/index.ts",
+  "scripts": {
+    "dev:server": "tsx server/src/index.ts",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"cyan.bold,magenta.bold\" \"npm run dev:server\" \"npm run dev:client\"",
+    "seed": "tsx -e \"import('./server/src/db/seed.js').then(m => m.seedDatabase(true))\"",
+    "test": "tsx server/tests/acceptance.test.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.3.0",
+    "@types/node": "^26.6.5",
+    "concurrently": "^10.0.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
